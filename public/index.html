@@ -13,11 +13,18 @@
         let socket = io();
         socket.on('connect', () => {
             console.log("A new user just client connected");
+            socket.emit('createMessage', {from :'selva',text:"hi murali"});
         });
+
 
         socket.on('disconnect', () => {
             console.log("A new user disconnected from the  server");
         });
+
+        
+        socket.on('newMessage', (message) => {
+        console.log(`create Message :`,message);
+    });
     </script>
-</body>
+</body> 
 </html>
